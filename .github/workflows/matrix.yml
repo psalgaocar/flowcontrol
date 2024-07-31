@@ -12,13 +12,13 @@ jobs:
             operating-systems: ['unbuntu-latest', 'windows-latest']
             exclude:
               - node-versions: 12
-                operating-system: windows-latest
+                operating-systems: windows-latest
               - node-versions: 12
-                operating-system: ubuntu-latest
+                operating-systems: ubuntu-latest
               - node-versions: 14
-                operating-system: ubuntu-latest
+                operating-systems: ubuntu-latest
               - node-versions: 16
-                operating-system: ubuntu-latest
+                operating-systems: ubuntu-latest
 
 
         runs-on: ${{ matrix.operating-systems }}
