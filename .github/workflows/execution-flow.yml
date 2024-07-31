@@ -36,7 +36,7 @@ jobs:
         id: run-tests # here we use id to identify the step in the flow
         run: npm run test
       - name: Upload test report
-        if: ${{steps.run-tests.outcome == 'failure'}}
+        if: failure() && ${{steps.run-tests.outcome == 'failure'}}
         uses: actions/upload-artifact@v4
         with:
           name: test-report
