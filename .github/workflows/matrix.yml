@@ -1,0 +1,23 @@
+name: Matrix Flow
+on:
+    push:
+        branches: 
+            - master
+jobs:
+    build:
+        strategy:
+          matrix:
+            node-versions: [12,14,16]
+            operating-systems: ['unbuntu-latest', 'windows-latest']
+        runs-on: ${{ matrix.operating-systems }}
+        steps:
+            - name: get Code
+              uses: actions/checkout@v4
+            - name: Install NodeJS
+              uses: actions/setup-node@v4
+              with:
+                    node-version: ${{ matrix.node-versions }}
+            - name: Install Dependencies
+              run: npm ci
+            - name: build Project
+              run: npm run build  
